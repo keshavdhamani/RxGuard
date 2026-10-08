@@ -10,6 +10,8 @@ import {
   Code2,
   Bell,
   Volume2,
+  Film,
+  Play,
 } from 'lucide-react';
 import { notificationService } from '../services/notificationService';
 
@@ -20,6 +22,7 @@ interface Props {
   onToggleViewMode: () => void;
   onOpenSOS: () => void;
   onOpenArch: () => void;
+  onOpenDemoVideo: () => void;
   onResetDemo: () => void;
   unreadCount?: number;
 }
@@ -31,6 +34,7 @@ export const Header: React.FC<Props> = ({
   onToggleViewMode,
   onOpenSOS,
   onOpenArch,
+  onOpenDemoVideo,
   onResetDemo,
   unreadCount = 0,
 }) => {
@@ -117,6 +121,19 @@ export const Header: React.FC<Props> = ({
                 {unreadCount}
               </span>
             )}
+          </button>
+
+          {/* Demo Video & MP4 Downloader */}
+          <button
+            onClick={onOpenDemoVideo}
+            className="px-2.5 py-1.5 rounded-xl border border-blue-300 bg-blue-50 hover:bg-blue-100 text-blue-700 transition-colors shadow-xs flex items-center gap-1.5 text-xs font-bold"
+            title="Watch Walkthrough & Download Demo Video (.mp4)"
+          >
+            <Play className="w-3.5 h-3.5 fill-blue-700 text-blue-700" />
+            <span className="hidden sm:inline">Demo Video</span>
+            <span className="text-[10px] font-mono bg-blue-200 text-blue-900 px-1 py-0.2 rounded font-extrabold hidden md:inline">
+              MP4
+            </span>
           </button>
 
           {/* Architecture / Hackathon Docs */}

@@ -35,6 +35,7 @@ import { InventoryModal } from './components/InventoryModal';
 import { InventoryManager } from './components/InventoryManager';
 import { CaregiverSOSModal } from './components/CaregiverSOSModal';
 import { ArchitectureModal } from './components/ArchitectureModal';
+import { DemoVideoModal } from './components/DemoVideoModal';
 import { MobileFrame } from './components/MobileFrame';
 
 export default function App() {
@@ -55,6 +56,7 @@ export default function App() {
   const [scannedResult, setScannedResult] = useState<PrescriptionAnalysisResult | null>(null);
   const [showSOSModal, setShowSOSModal] = useState<boolean>(false);
   const [showArchModal, setShowArchModal] = useState<boolean>(false);
+  const [showDemoVideoModal, setShowDemoVideoModal] = useState<boolean>(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   // Initialize data on mount
@@ -171,6 +173,7 @@ export default function App() {
             onToggleViewMode={handleToggleViewMode}
             onOpenSOS={() => setShowSOSModal(true)}
             onOpenArch={() => setShowArchModal(true)}
+            onOpenDemoVideo={() => setShowDemoVideoModal(true)}
             onResetDemo={handleResetDemo}
             unreadCount={unreadAlerts}
           />
@@ -317,6 +320,16 @@ export default function App() {
 
           {showArchModal && (
             <ArchitectureModal onClose={() => setShowArchModal(false)} />
+          )}
+
+          {showDemoVideoModal && (
+            <DemoVideoModal
+              onClose={() => setShowDemoVideoModal(false)}
+              onOpenLiveFeature={(tab) => {
+                setActiveTab(tab);
+                setShowDemoVideoModal(false);
+              }}
+            />
           )}
         </div>
       </MobileFrame>
