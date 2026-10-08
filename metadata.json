@@ -1,0 +1,9 @@
+{
+  "name": "RxGuard: AI Prescription Safety & Intelligent Medication Tracker",
+  "description": "AI-powered prescription OCR & safety scanner, intelligent inventory tracking, smart medication timeline, and senior-friendly accessibility alerts.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
